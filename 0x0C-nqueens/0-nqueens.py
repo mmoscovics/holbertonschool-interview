@@ -28,8 +28,8 @@ def print_solutions(board):
 
 def valid(n, board, row, col):
     """checks valid position for queens"""
-    for y in range(col):
-        if board[row][y] == 1:
+    for i in range(col):
+        if board[row][i] == 1:
             return False
     x = row
     y = col
