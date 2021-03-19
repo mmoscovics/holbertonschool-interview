@@ -11,10 +11,11 @@ def solve_nqueens(n, board, col):
     for row in range(n):
         if valid(n, board, row, col):
             board[row][col] = 1
-            if solve_nqueens(n, board, col + 1) == True:
+            if solve_nqueens(n, board, col + 1) is True:
                 return True
             board[row][col] = 0
     return False
+
 
 def print_solutions(board):
     """print queen solutions"""
@@ -23,6 +24,7 @@ def print_solutions(board):
         pos = board[i].index(1)
         solution.append([i, pos])
     print(solution)
+
 
 def valid(n, board, row, col):
     """checks valid position for queens"""
@@ -45,6 +47,7 @@ def valid(n, board, row, col):
         y -= 1
     return True
 
+
 def main():
     """main function"""
     n = int(sys.argv[1])
@@ -60,6 +63,7 @@ def main():
         print("N must be at least 4")
         exit(1)
     solve_nqueens(n, board, 0)
+
 
 if __name__ == "__main__":
     main()
