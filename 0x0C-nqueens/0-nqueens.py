@@ -5,16 +5,16 @@ import sys
 
 def solve_nqueens(n, board, col):
     """solving function for n queens"""
+    status = False
     if col == n:
         print_solutions(board)
         return True
     for row in range(n):
         if valid(n, board, row, col):
             board[row][col] = 1
-            if solve_nqueens(n, board, col + 1) is True:
-                return True
+            status = solve_nqueens(n, board, col + 1) or status
             board[row][col] = 0
-    return False
+    return status
 
 
 def print_solutions(board):
