@@ -13,7 +13,7 @@ request(films, async function (err, res, body) {
     await new Promise(function (resolve, reject) {
       request(character, function (err, res, body) {
         if (err) {
-          console.log(err);
+          reject(err);
         }
         console.log(JSON.parse(body).name);
         resolve();
