@@ -8,16 +8,14 @@ request(films, async function (err, res, body) {
   if (err) {
     console.log(err);
   }
-  const json = JSON.parse(body);
-  for (const character of json.characters) {
-    await new Promise(function (resolve, reject) {
+  for (const character of JSON.parse(body).characters) {
+    await new Promise((resolve, reject) => {
       request(character, function (err, res, body) {
         if (err) {
           reject(err);
-        } else {
-          console.log(JSON.parse(body).name);
-          resolve();
         }
+        console.log(JSON.parse(body).name);
+        resolve();
       });
     });
   }
