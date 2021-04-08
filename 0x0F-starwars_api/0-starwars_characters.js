@@ -14,9 +14,10 @@ request(films, async function (err, res, body) {
       request(character, function (err, res, body) {
         if (err) {
           reject(err);
+        } else {
+          console.log(JSON.parse(body).name);
+          resolve();
         }
-        console.log(JSON.parse(body).name);
-        resolve();
       });
     });
   }
