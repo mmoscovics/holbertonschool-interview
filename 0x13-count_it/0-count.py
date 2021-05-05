@@ -24,7 +24,7 @@ def count_words(subreddit, word_list, after=None, words={}):
         for key, value in words.items():
             titles = child["data"]["title"]
             word_count = titles.lower().split().count(key)
-            if key in titles.lower():
+            if key in titles:
                 words[key] += word_count
     after = response.json()["data"]["after"]
     if after is None:
