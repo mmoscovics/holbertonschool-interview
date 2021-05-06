@@ -12,7 +12,6 @@ def count_words(subreddit, word_list, after=None, words={}):
 
     if len(words) == 0:
         for word in word_list:
-            word = word.lower()
             words[word] = 0
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     user_agent = {"User-Agent": "Hello There 1.0"}
@@ -23,6 +22,7 @@ def count_words(subreddit, word_list, after=None, words={}):
     children = response.json()["data"]["children"]
     for child in children:
         for key, value in words.items():
+            key = key.lower()
             titles = child["data"]["title"]
             word_count = titles.lower().split().count(key)
             if key in titles.lower():
