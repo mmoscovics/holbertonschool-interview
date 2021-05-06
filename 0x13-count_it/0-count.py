@@ -29,7 +29,8 @@ def count_words(subreddit, word_list, after=None, words={}):
                 words[key] += word_count
     after = response.json()["data"]["after"]
     if after is None:
-        for key, value in sorted(words.items(), key=lambda word: word[1], reverse=True):
+        for key, value in sorted(words.items(), key=lambda word: word[1],
+                                 reverse=True):
             if value > 0:
                 print("{}: {}".format(key, value))
         return
